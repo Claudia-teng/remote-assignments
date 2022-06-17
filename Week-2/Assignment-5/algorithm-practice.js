@@ -20,3 +20,4 @@ function binarySearchPosition(numbers, target) {
 // assume array is sorted
 console.log(binarySearchPosition([1, 2, 4, 6, 7], 1)) // 0
 console.log(binarySearchPosition([1, 2, 4, 6, 7], 6)) // 3
+console.log(binarySearchPosition([1, 2, 4, 6, 7], 8)) // -1

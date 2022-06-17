@@ -24,6 +24,7 @@ function groupByKey(input) {
 
 let input1 = ['a', 'b', 'c', 'a', 'c', 'a', 'x'];
 console.log(count(input1)) // {a:3, b:1, c:2, x:1 }
+
 let input2 = [
   { key: 'a', value: 3 },
   { key: 'b', value: 1 },
