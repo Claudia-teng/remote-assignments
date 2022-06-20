@@ -1,9 +1,8 @@
 function avg(data) {
   if (data.size === 0) return 0;
   let total = data.products
-    .map(product => product.price)
-    .reduce((a, b) => {
-      return a + b;
+    .reduce((acc, obj) => {
+      return acc + obj.price;
     }, 0);
   return total/data.size;
 }
