@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+  font-family: 'Roboto Mono', monospace;
+  background-color: #faedcd;
+}
+
+input, button {
+  border: none;
+  height: 2rem;
+}
+
+button {
+  background-color: #d4a373;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0.5rem
+}
+
+.error {
+  color: #e63946;
+}
+
+.answer, .error {
+  margin-top: 1rem
+}
