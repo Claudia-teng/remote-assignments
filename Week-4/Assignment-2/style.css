@@ -1,0 +1,16 @@
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: #faedcd;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.container div {
+  background-color: #fefae0;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+}

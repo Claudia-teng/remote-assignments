@@ -13,12 +13,18 @@ function ajax(src, callback) {
 }
 
 function render(data) {
-  console.log(data);
+  let response = JSON.parse(data);
+  for (let item of response) {
+    const div = document.createElement("div");
+    for (let property in item) {
+      const node = document.createElement("p");
+      node.innerHTML = item[property];
+      div.appendChild(node);
+    }
+    document.getElementsByClassName("container")[0].appendChild(div);
+  }
 }
 
-ajax(
-  "https://www.appworks-school.github.io/Remote-Assignment-Data/products",
-  function (response) {
-    render(response);
-  }
-);
+ajax("https://appworks-school.github.io/Remote-Aassigiment-Data/products", function (response) {
+  render(response);
+});
