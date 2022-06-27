@@ -1,0 +1,44 @@
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: #faedcd;
+}
+
+form {
+  padding-top: 5rem;
+  width: 300px;
+  margin: 0 auto;
+}
+
+h3 {
+  margin-bottom: 2rem;
+}
+
+input {
+  display: block;
+  border: none;
+  width: 100%;
+  height: 2rem;
+}
+
+label, input {
+  margin: 1rem 0rem
+}
+
+button {
+  background-color: #d4a373;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0.5rem;
+  border: none;
+}
+
+.error {
+  color: #e63946;
+  margin: 1rem auto;
+  width: 300px;
+}
+
+.welcome {
+  text-align: center;
+  margin-top: 5rem
+}

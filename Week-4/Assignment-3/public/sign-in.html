@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Sign In</title>
+  </head>
+  <body>
+    <form>
+      <h3>Sign In</h3>
+      <label id="email">Email</label>
+      <input for="email" />
+      <label id="password">Password</label>
+      <input type="password" for="email" />
+      <button type="button">Sign In</button>
+    </form>
+    <p class="error"></p>
+    <script>
+      document
+        .getElementsByTagName("button")[0]
+        .addEventListener("click", function () {
+          let number = document.getElementsByTagName("input")[0].value;
+
+          let xhttp = new XMLHttpRequest();
+          xhttp.open("POST", `http://localhost:3000/signin`, true);
+
+          xhttp.onreadystatechange = function () {
+            if (this.readyState === 4) {
+              if (this.status === 200) {
+                window.location = "http://localhost:3000/success.html";
+              } else {
+                document.getElementsByClassName("error")[0].innerHTML =
+                  JSON.parse(this.responseText).error;
+              }
+            }
+          };
+          xhttp.send();
+        });
+    </script>
+  </body>
+</html>
