@@ -17,7 +17,7 @@ const db = mysql.createConnection({
   database: "assignment",
 });
 
-// Connect
+// connect
 db.connect((err) => {
   if (err) throw err;
   console.log("MySQL connected!");
@@ -78,6 +78,7 @@ app.post("/signup", async (req, res) => {
     db.query(sql, user, (err, result) => {
       if (err) throw err;
       return res.status(200).json({
+        ok: true,
         username,
       });
     });
@@ -99,6 +100,12 @@ app.post("/signin", async (req, res) => {
     });
   }
 
+  if (!validator.isEmail(email)) {
+    return res.status(400).json({
+      error: "Please enter a valid email.",
+    });
+  }
+
   let sql = `SELECT * FROM user WHERE email = '${email}'`;
   db.query(sql, async (err, result) => {
     if (err) throw err;
@@ -117,6 +124,7 @@ app.post("/signin", async (req, res) => {
     }
 
     return res.status(200).json({
+      ok: true,
       username: user.username,
     });
   });
