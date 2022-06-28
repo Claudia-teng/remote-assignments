@@ -2,11 +2,8 @@ function ajax(src, callback) {
   const xhttp = new XMLHttpRequest();
   xhttp.open("GET", src, true);
   xhttp.onreadystatechange = function () {
-    if (xhttp.readyState === 4) {
-      if (xhttp.status === 200) {
-        callback(xhttp.responseText);
-      } else {
-      }
+    if (xhttp.readyState === 4 && xhttp.status === 200) {
+      callback(xhttp.responseText);
     }
   };
   xhttp.send();
@@ -18,7 +15,8 @@ function render(data) {
     const div = document.createElement("div");
     for (let property in item) {
       const node = document.createElement("p");
-      node.innerHTML = item[property];
+      const textNode = document.createTextNode(item[property]);
+      node.appendChild(textNode);
       div.appendChild(node);
     }
     document.getElementsByClassName("container")[0].appendChild(div);
