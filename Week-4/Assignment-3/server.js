@@ -56,16 +56,23 @@ app.post("/signup", async (req, res) => {
     });
   }
 
-  let sql = `SELECT * FROM user WHERE email = '${email}'`;
-
-  db.query(sql, async (err, result) => {
-    if (err) throw err;
-    if (result.length) {
-      return res.status(400).json({
-        error: "This email has been signed up before.",
+  async function checkExistEmail() {
+    return new Promise((resolve, reject) => {
+      let sql = `SELECT * FROM user WHERE email = '${email}'`;
+      db.query(sql, async (err, result) => {
+        if (err) throw err;
+        resolve(result.length);
       });
-    }
+    });
+  }
 
+  const existEmail = await checkExistEmail();
+
+  if (existEmail) {
+    return res.status(400).json({
+      error: "This email has been signed up before.",
+    });
+  } else {
     const encryptedPassword = await bcrypt.hash(password, 10);
 
     let user = {
@@ -74,7 +81,7 @@ app.post("/signup", async (req, res) => {
       password: encryptedPassword,
     };
 
-    sql = "INSERT INTO user SET ?";
+    let sql = "INSERT INTO user SET ?";
     db.query(sql, user, (err, result) => {
       if (err) throw err;
       return res.status(200).json({
@@ -82,7 +89,7 @@ app.post("/signup", async (req, res) => {
         username,
       });
     });
-  });
+  }
 });
 
 app.post("/signin", async (req, res) => {
