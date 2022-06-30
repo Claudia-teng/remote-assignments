@@ -26,10 +26,10 @@ CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (18,'test3','test3@gmail.com','$2b$10$jFl8TGh5p.UD2xyuYnSLtO3qPgVLUr7P7M682ztUig4mml99LeR8y'),(19,'test4','test4@gmail.com','$2b$10$umRVWIuSGInF6ewuGnNreOJH4JZfsh7tcaMLh4zPnmNRuae5LwK0K'),(20,'test5','test5@gmail.com','$2b$10$fAk/CKMMo.Ai67tLwWuYxueajPjbZyIqyDaSXzqwb9tNYiMvJWm56'),(21,'test6','test6@gmail.com','$2b$10$7vMq7TWrGj9C9rSQNUeeA.GcB/psmu8k7G5I2POxCWgQBtytsPiy.'),(22,'test7','test7@gmail.com','$2b$10$p0Mugpwxlw5M62movc3zzOnK/K37VgAnH4cYVXChoB9GkeZgb3tDO'),(23,'test1','test1@gmail.com','$2b$10$xx63rbJwcQDmZ.USckwxIeobA8eYoMp3oD6meijVhEgYadoR4aYUe');
+INSERT INTO `user` VALUES (1,'test1','test1@gmail.com','$2b$10$t0fh3TtWOHyXyVIK/d2xhepL2eQwTKLeaE2ePRNmxiBMhbw2UcUaC'),(2,'test2','test2@gmail.com','$2b$10$hdSjwPPAuBnKIRVtyAct/.AUu4ZdJIUU8PQgxB2YJR5GkIHltdjdy'),(3,'test3','test3@gmail.com','$2b$10$.H.kyu2eNZy93HUtKVg4Pe1w9Ako5ORPNXFtAM.VskvfW74CZURlW');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-27 16:54:38
+-- Dump completed on 2022-06-30 10:15:46
